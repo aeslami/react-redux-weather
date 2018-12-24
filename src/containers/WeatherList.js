@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Map from '../components/Map';
 import Chart from '../components/Chart';
+import style from './WeatherList.module.css';
 
 class WeatherList extends Component {
   renderWeather(cityData) {
@@ -30,17 +31,21 @@ class WeatherList extends Component {
   }
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
-          </tr>
-        </thead>
-        <tbody>{this.props.weather.map(this.renderWeather)}</tbody>
-      </table>
+      <Fragment>
+        {this.props.weather.length > 0 && (
+          <table className={style.table}>
+            <thead>
+              <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Pressure</th>
+                <th>Humidity</th>
+              </tr>
+            </thead>
+            <tbody>{this.props.weather.map(this.renderWeather)}</tbody>
+          </table>
+        )}
+      </Fragment>
     );
   }
 }
