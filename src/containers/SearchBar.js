@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../actions';
+import style from './SearchBar.module.css';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -26,13 +27,13 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <form className={style.form} onSubmit={this.onFormSubmit}>
         <input
-          placeholder="Enter city"
+          className={style.input}
+          placeholder="Enter city + ENTER"
           value={this.state.term}
           onChange={this.onInputChange}
         />
-        <button type="submit">Submit</button>
       </form>
     );
   }

@@ -19,8 +19,9 @@ class Map extends Component {
       <div
         ref={el => (this.mapContainer = el)}
         style={{
-          width: '150px',
-          height: '70px'
+          width: '100px',
+          height: '100px',
+          margin: '0 auto'
         }}
       />
     );
